@@ -1,0 +1,57 @@
+<h1>Viewing <%= @store.name %></h1>
+<div class="row">
+  <div class="small-6 columns">
+    <p>
+      <strong>Type:</strong>
+      <%= @store.type_of_store %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @store.address %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @store.phone %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @store.description %>
+    </p>
+    <fieldset>
+      <legend>Rewards</legend>
+      <p>
+        <strong>First reward:</strong>
+        <%= @store.rewardfirst %> for <%= @store.pointsfirst %> Points
+      </p>
+      <p>
+        <strong>Second reward:</strong>
+        <%= @store.rewardsecond %> for <%= @store.pointssecond %> Points
+      </p>
+      <p>
+        <strong>Third reward:</strong>
+        <%= @store.rewardthird %> for <%= @store.pointsthird %> Points
+      </p>
+    </fieldset>
+  </div>
+  <div class="small-6 columns">
+    <%= link_to "Create transaction", @store, class: "button radius small-12 columns", data: { "reveal-id" => "transaction-modal" } %>
+    <%= link_to "View loyal customers of this store", show_memberships_store_path(@store), class: "button radius small-12 columns secondary" %>
+  </div>
+</div>
+
+
+
+<%= link_to 'Edit', edit_store_path(@store) %> | <%= link_to 'Destroy', @store, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', stores_path %>
+
+<div id="transaction-modal" class="reveal-modal small" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+  <%= form_tag search_client_path(store_id: @store.id), method: :put do |f| %>
+    <%= label_tag :document, "Enter Client's document" %>
+    <%= text_field_tag :document %>
+    <%= submit_tag "Next", class: "button radius medium expand submit" %>
+  <% end %>
+</div>

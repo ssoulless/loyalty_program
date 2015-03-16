@@ -1,0 +1,23 @@
+<h1>Transaction #<%= @transaction.id %> <%= @transaction.created_at.strftime("Created at %d/%m/%Y") %></h1>
+<div class="row">
+  <div class="small-6 columns">
+    <p>
+      <strong>Description:</strong>
+      <%= @transaction.description %>
+    </p>
+    <p>
+      <strong>total:</strong>
+      <%= humanized_money_with_symbol @transaction.total %>
+    </p>
+    <p>
+      <strong>Points awarded:</strong>
+      <span class="label round"><%= @transaction.points_awarded %></span>
+    </p>
+  </div>
+  <div class="small-6 columns">
+    <strong>Billed to:</strong><br>
+    <%= @transaction.client.full_name %><br>
+    <strong>Billed for:</strong><br>
+    <%= @transaction.store.name %>
+  </div>
+</div>

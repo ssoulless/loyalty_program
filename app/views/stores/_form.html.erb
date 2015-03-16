@@ -1,0 +1,64 @@
+<%= form_for(@store) do |f| %>
+  <% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_store %><br>
+    <%= f.text_field :type_of_store %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <fieldset>
+    <legend>Rewards</legend>
+    <div class="field">
+      <%= f.label :pointsfirst, "Points first" %><br>
+      <%= f.text_field :pointsfirst %>
+    </div>
+    <div class="field">
+      <%= f.label :rewardfirst, "first reward" %><br>
+      <%= f.text_field :rewardfirst %>
+    </div>
+    <div class="field">
+      <%= f.label :pointssecond, "Points second" %><br>
+      <%= f.text_field :pointssecond %>
+    </div>
+    <div class="field">
+      <%= f.label :rewardsecond, "second reward" %><br>
+      <%= f.text_field :rewardsecond %>
+    </div>
+    <div class="field">
+      <%= f.label :pointsthird, "Points third" %><br>
+      <%= f.text_field :pointsthird %>
+    </div>
+    <div class="field">
+      <%= f.label :rewardthird, "Third reward" %><br>
+      <%= f.text_field :rewardthird %>
+    </div>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit 'Submit', class: "button small-6 columns expand" %>
+  </div>
+<% end %>

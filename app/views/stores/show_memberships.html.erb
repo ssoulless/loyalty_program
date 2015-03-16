@@ -1,0 +1,32 @@
+<h1>Loyal Customers of <%= @store.name %></h1>
+<div class="row">
+  <div class="small-12 columns small-centered">
+    <table>
+      <thead>
+        <tr>
+          <th>Pos.</th>
+          <th>Points</th>
+          <th>ID</th>
+          <th>Full name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% i = 1 %> 
+        <% @memberships.each do |membership| %>
+          <tr>
+            <td>#<%= i %></td>
+            <td><span class="label round"><%= membership.client.points %><span></td>
+            <td><%= membership.client.cedula %></td>
+            <td><%= link_to membership.client.full_name, membership.client %></td>
+          </tr>
+          <% i = i + 1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<div id="paginator">
+  <%= will_paginate @memberships, renderer: FoundationPagination::Rails, :previous_label => '<', :next_label => '>' %>
+</div>

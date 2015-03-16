@@ -1,0 +1,39 @@
+<h1>Viewing client</h1>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @client.full_name %>
+</p>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @client.cedula %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @client.gender %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @client.birthday %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @client.age %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @client.address %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' } %>
